@@ -40,3 +40,35 @@
 .read-the-docs {
   color: #888;
 }
+
+body{
+  text-align: center;
+}
+
+.box{
+  background-color: rgb(148, 147, 140);
+  color: black;
+  width: 185px;
+  height: 25px;
+  margin: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: right;
+padding: 10px;   
+}
+
+button{
+  margin: 2px;
+
+ }
+ .calcubtn{
+  border-radius:;
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -ms-border-radius:;
+  -o-border-radius:;
+}
+
+.danger{
+  background-color: rgb(204, 42, 42);
+}

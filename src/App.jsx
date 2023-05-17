@@ -1,35 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React, { useState } from "react";
+import ".//App.css";
 function App() {
-  const [count, setCount] = useState(0)
+  const [result, setResult] = useState("");
 
+  const clearHandler = () => {
+    setResult("");
+  };
+  const clickHandler = (e) => {
+    setResult(result.concat(e.target.value));
+  };
+  const removeLastElementHandler = () => {
+    setResult(result.slice(0, result.length - 1));
+  };
+  const calculate = () => {
+    setResult(eval(result).toString());
+  };
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <h2 style={{ opacity: "0.2" }}>-CALCULATOR-</h2>
+      <div className="box">{result}</div>
 
-export default App
+      <div className="calcubtn">
+        <button style={{ width: "90px", height:"40px" }} className="danger" onClick={clearHandler}>
+          Clear
+        </button>
+        <button onClick={removeLastElementHandler} className="btn btn-danger">CC</button>
+
+        <button   value="/" onClick={clickHandler}>
+          /
+        </button>
+        <br />
+        <button   value="7" onClick={clickHandler}>
+          7
+        </button>
+        <button  value="8" onClick={clickHandler}>
+          8
+        </button>
+
+        <button   value="9" onClick={clickHandler}>
+          9
+        </button>
+        <button  value="*" onClick={clickHandler}>
+          *
+        </button>
+        <br />
+        <button   value="4" onClick={clickHandler}>
+          4
+        </button>
+        <button   value="5" onClick={clickHandler}>
+          5
+        </button>
+
+        <button   value="6" onClick={clickHandler}>
+          6
+        </button>
+
+        <button value="-" onClick={clickHandler}>
+          -
+        </button>
+        <br />
+        <button   value="1" onClick={clickHandler}>
+          1
+        </button>
+        <button   value="2" onClick={clickHandler}>
+          2
+        </button>
+        <button  value="3" onClick={clickHandler}>
+          3
+        </button>
+        <button  value="+" onClick={clickHandler}>
+          +
+        </button>
+        <br />
+        <button   style={{ width: "105px" }} value="0" onClick={clickHandler}>
+          0
+        </button>
+        <button   value="." onClick={clickHandler}>
+          .
+        </button>
+        <button   value="=" onClick={calculate}>
+          =
+        </button>
+      </div>
+    </>
+  );
+}
+export default App;
